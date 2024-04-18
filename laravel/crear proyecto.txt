@@ -12,3 +12,13 @@
 3.Anticlik y <creacion rapida de sitio web> luego <laravel> ingresar nombre 
 
 php artisan serve ingresar 
+
+
+crear un login con laravel/ui
+
+*composer require laravel/ui
+php artisan ui bootstrap
+php artisan ui bootstrap --auth
+
+npm run build
+
