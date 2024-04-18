@@ -1,0 +1,14 @@
+
+
+
+1. composer create-project laravel/laravel nameproject
+  -cd nameproject
+  -php artisan serve
+
+2. laravel new nameproject
+  -php artisan migrate
+  -php artisan serve
+
+3.Anticlik y <creacion rapida de sitio web> luego <laravel> ingresar nombre 
+
+php artisan serve ingresar 
