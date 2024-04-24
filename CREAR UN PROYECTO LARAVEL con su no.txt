@@ -1,0 +1,102 @@
+CREAR UN PROYECTO LARAVEL con su nombre
+crear minimo 5 rutas en el proyecto laravel
+
+
+codigo para crear rutas en un proyecto laravel
+
+**Ubicación de las rutas: Laravel organiza las rutas en el archivo routes/web.php para rutas web y routes/api.php para rutas de API.
+
+**Definir una ruta: Puedes definir una ruta utilizando el método Route::. Por ejemplo, para una ruta básica:
+
+Route::get('/ruta', function () {
+    return 'Hola, esta es una ruta en Laravel!';
+});
+
+**Tipos de rutas: Puedes definir rutas para diferentes verbos HTTP como GET, POST, PUT, PATCH, DELETE, etc.
+
+Route::post('/ruta', function () {
+    // Lógica para manejar la solicitud POST
+});
+
+**Rutas con parámetros: Puedes definir rutas con parámetros que capturan partes de la URL.
+
+Route::get('/usuario/{id}', function ($id) {
+    return 'ID del usuario: ' . $id;
+});
+
+**Nombre de la ruta: Puedes dar nombres a las rutas para facilitar su referencia en otras partes del código.
+
+Route::get('/perfil/{id}', function ($id) {
+    // Lógica para mostrar el perfil del usuario
+})->name('perfil');
+
+**Generar URLs: Puedes generar URLs utilizando el nombre de la ruta utilizando el helper route().
+
+$url = route('perfil', ['id' => 1]);
+
+**Agrupar rutas: Puedes agrupar rutas para aplicar middleware o prefijos de URI comunes.
+
+Route::middleware(['auth'])->group(function () {
+    // Rutas protegidas
+});
+
+
+
+
+++++++++++++++++++++++++++
+
+
+para crear una ruta debes crear un archivo php en (app/http/controller)
+la que cree es "ruta1Controller"dentro de esta va lo siguiente
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ruta1Controller extends Controller
+{
+    /**
+     * Muestra la vista correspondiente a /ruta3.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function ruta1()
+    {
+        return view('ruta1');
+    }
+    
+}
+
+- luego en views crear "ruta1.blade.php"ahi va contenido en html 
+__________________________________________________________________________________________________
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        /* Agrega aquí tus estilos personalizados si es necesario */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Aquí va el contenido de tu página -->
+        <h1>Hello, world!</h1>
+    </div>
+
+    <!-- Bootstrap Bundle JS (requiere jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+______________________________________________________________________________________________________
+luego enb routes web.php crea la ruta 
+Route::get('/ruta1', [App\Http\Controllers\ruta1Controller::class, 'ruta1'])->name('ruta1');
+
+luego en welcome.blade.php 
+<a class="nav-link" href="{{ route('ruta1') }}">route1</a>
+
